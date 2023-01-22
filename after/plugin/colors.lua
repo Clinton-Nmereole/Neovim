@@ -1,0 +1,28 @@
+--require("tokyonight").setup({
+  --  --use the night style
+--  style = "storm",
+  --  --disable italic for functions
+--  styles = {
+--    functions = {}
+--  },
+--  sidebars = { "qf", "vista_kind", "terminal", "packer" },
+ -- -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+--  on_colors = function(colors)
+--    colors.hint = colors.orange
+--    colors.error = "#ff0000"
+--  end
+--})
+
+
+function ColorMyPencils(color)
+	color = color or "rose-pine"
+	vim.cmd.colorscheme(color)
+
+	--transparent background
+	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	
+end
+
+ColorMyPencils()
