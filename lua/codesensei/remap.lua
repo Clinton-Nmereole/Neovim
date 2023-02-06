@@ -4,6 +4,16 @@ local keymap = vim.keymap --for concisensess
 --to go to the previous directory
 keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+-- window split
+keymap.set("n", "<leader>sv", "<C-w>v") --split window vertically
+keymap.set("n", "<leader>sh", "<C-w>s") --split window horizontally
+keymap.set("n", "<leader>ml", "<C-w>l") --split window left vertically
+keymap.set("n", "<leader>mr", "<C-w>h") --split window right vertically
+keymap.set("n", "<leader>mu", "<C-w>k") --split window up horizontally
+keymap.set("n", "<leader>md", "<C-w>j") --split window down horizontally
+
+
+
 
 -- python keymap
 vim.api.nvim_create_autocmd("FileType", {
@@ -62,7 +72,7 @@ pattern = "go",
 command = [[nnoremap <buffer> <leader><leader>1 :w<CR> :!goimports -w %<CR>]]
 })
 
--- Javascript
+-- Javascript and Typescript
 vim.api.nvim_create_autocmd("FileType", {
 pattern = "javascript",
 command = [[nnoremap <buffer> <leader>1 :w<CR> :term node %<CR>]]
@@ -80,7 +90,16 @@ pattern = "dart" ,
 command = [[nnoremap <buffer> <leader>1 :w<CR> :term dart %<CR>]]
 })
 
+-- Julia 
+vim.api.nvim_create_autocmd("FileType", {
+pattern = "julia" ,
+command = [[nnoremap <buffer> <leader>1 :w<CR> :term julia %<CR>]]
+})
 
-
+--Nim 
+vim.api.nvim_create_autocmd("FileType", {
+pattern = "nim" ,
+command = [[nnoremap <buffer> <leader>1 :w<CR> :term nim c -r %<CR>]]
+})
 
 
