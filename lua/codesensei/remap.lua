@@ -102,4 +102,9 @@ pattern = "nim" ,
 command = [[nnoremap <buffer> <leader>1 :w<CR> :term nim c -r %<CR>]]
 })
 
+--Rust
+vim.api.nvim_create_autocmd("FileType", {
+pattern = "rust" ,
+command = [[nnoremap <buffer> <leader>1 :w<CR> :term rustc % && %<<CR>]]
+})
 

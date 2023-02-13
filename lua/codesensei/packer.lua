@@ -82,6 +82,11 @@ use 'sainnhe/sonokai'
 	  }
   }
 
+  --Tabnine
+  require("packer").startup(function(use)
+       use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
+  end)
+
   --navigation
   use {
        "kyazdani42/nvim-tree.lua",
@@ -111,18 +116,18 @@ use "rcarriga/nvim-notify"
 
 -- debugger protocol
 use 'mfussenegger/nvim-dap'
-use("rcarriga/nvim-dap-ui")
 use("theHamsta/nvim-dap-virtual-text")
 use("nvim-telescope/telescope-dap.nvim")
 use("rcarriga/nvim-dap-ui")
-use("theHamsta/nvim-dap-virtual-text")
-use("nvim-telescope/telescope-dap.nvim")
 
-use("mfussenegger/nvim-dap-python")
 use("mfussenegger/nvim-dap-python")
 
 --dev icons 
 use 'ryanoasis/vim-devicons'
 --color brackets
 use("p00f/nvim-ts-rainbow")
+
+use('lervag/vimtex')
+use('vimwiki/vimwiki')
+
 end)
