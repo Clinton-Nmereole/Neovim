@@ -28,7 +28,7 @@ require('lualine').setup{
 
 opt.updatetime = 50
 
-opt.colorcolumn = "200" 
+opt.colorcolumn = "200"
 
 
 opt.list = true
@@ -39,4 +39,9 @@ require("indent_blankline").setup {
     show_end_of_line = true,
 }
 
+
+
 opt.clipboard = 'unnamedplus'
+
+
+

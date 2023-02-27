@@ -19,7 +19,7 @@ vim.g.sonokai_better_performance = 1
 
 
 function ColorMyPencils(color)
-	color = color or "nightfox"
+	color = color or "rose-pine"
 	vim.cmd.colorscheme(color)
 
      --transparent background

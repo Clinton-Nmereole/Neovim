@@ -6,6 +6,8 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+  use 'codota/tabnine-nvim'
+  use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -22,23 +24,22 @@ return require('packer').startup(function(use)
   use 'EdenEast/nightfox.nvim'
 
   -- rose pine theme
-use({
+  use({
     'rose-pine/neovim',
     as = 'rose-pine',
     config = function()
         require("rose-pine").setup()
         vim.cmd('colorscheme rose-pine')
-    end
-})
+    end})
 
---gruvbox theme
-use { "ellisonleao/gruvbox.nvim" }
+  --gruvbox theme
+  use { "ellisonleao/gruvbox.nvim" }
 
---sonokai theme
-use 'sainnhe/sonokai'
+  --sonokai theme
+  use 'sainnhe/sonokai'
 
---transparent 
---use 'xiyaowong/nvim-transparent'
+  --transparent 
+  --use 'xiyaowong/nvim-transparent'
 
 
   -- treesitter
@@ -75,6 +76,7 @@ use 'sainnhe/sonokai'
 		  {'hrsh7th/cmp-nvim-lsp'},
 		  {'hrsh7th/cmp-nvim-lua'},
 
+
 		  -- Snippets
 		  {'L3MON4D3/LuaSnip'},
 		  -- Snippet Collection (Optional)
@@ -82,10 +84,13 @@ use 'sainnhe/sonokai'
 	  }
   }
 
+  use {
+       'dsznajder/vscode-es7-javascript-react-snippets',
+       run = 'yarn install --frozen-lockfile && yarn compile'
+     }
+
   --Tabnine
-  require("packer").startup(function(use)
-       use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
-  end)
+  --use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
 
   --navigation
   use {
@@ -93,6 +98,7 @@ use 'sainnhe/sonokai'
        requires = {"nvim-tree/nvim-web-devicons"},
        tag = "nightly" -- optional, updated every week. (see issue #1193)
   }
+
 
   --Nim plugin for syntax highlighting
   use ('alaviss/nim.nvim')
@@ -109,25 +115,42 @@ use 'sainnhe/sonokai'
   --live server for web dev 
   use('manzeloth/live-server')
 
---autorunner
-use "krshrimali/nvim-autorunner"
--- depends on nvim-notify
-use "rcarriga/nvim-notify"
+  --autorunner
+  use "krshrimali/nvim-autorunner"
+  -- depends on nvim-notify
+  use "rcarriga/nvim-notify"
 
--- debugger protocol
-use 'mfussenegger/nvim-dap'
-use("theHamsta/nvim-dap-virtual-text")
-use("nvim-telescope/telescope-dap.nvim")
-use("rcarriga/nvim-dap-ui")
+  -- debugger protocol
+  use 'mfussenegger/nvim-dap'
+  use("theHamsta/nvim-dap-virtual-text")
+  use("nvim-telescope/telescope-dap.nvim")
+  use("rcarriga/nvim-dap-ui")
 
-use("mfussenegger/nvim-dap-python")
+  use("mfussenegger/nvim-dap-python")
 
---dev icons 
-use 'ryanoasis/vim-devicons'
---color brackets
-use("p00f/nvim-ts-rainbow")
+  --dev icons 
+  use 'ryanoasis/vim-devicons'
+  --color brackets
+  use("p00f/nvim-ts-rainbow")
 
-use('lervag/vimtex')
-use('vimwiki/vimwiki')
+  use('lervag/vimtex')
+  use('vimwiki/vimwiki')
+  use('michaelb/sniprun')
+  use('CRAG666/code_runner.nvim')
+  use('numToStr/Comment.nvim')
+  use('glepnir/lspsaga.nvim')
+  use('jose-elias-alvarez/null-ls.nvim')
+  -- using packer.nvim
+  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+  use({
+  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  config = function()
+    require("lsp_lines").setup()
+  end
+})
+  use {
+	"windwp/nvim-autopairs",
+     config = function() require("nvim-autopairs").setup {} end
+  }
 
 end)
