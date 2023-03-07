@@ -15,7 +15,7 @@ require("tokyonight").setup({
 
 
 vim.g.sonokai_style = "andromeda"
-vim.g.sonokai_better_performance = 1
+--vim.g.sonokai_better_performance = 1
 
 
 function ColorMyPencils(color)
@@ -24,9 +24,7 @@ function ColorMyPencils(color)
 
      --transparent background
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-	
 end
 
 ColorMyPencils()

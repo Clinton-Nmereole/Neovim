@@ -113,3 +113,8 @@ pattern = "rust" ,
 command = [[nnoremap <buffer> <leader>2 :w<CR> :term cargo run <CR>]]
 })
 
+--Latex
+vim.api.nvim_create_autocmd("FileType", {
+pattern = "tex",
+command = [[nnoremap <buffer> <leader>1 :w<CR> :VimtexCompile<CR>]]
+})
